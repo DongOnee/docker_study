@@ -1,0 +1,24 @@
+version: '3.0'
+
+services: 
+    tomcat_1: &was
+        build: 
+            context: .
+            dockerfile: ./DockerfileTomcat
+        volumes: 
+            - ./tomcat/log1/:/usr/local/tomcat/logs
+    tomcat_2: 
+        <<: *was
+        build: 
+            context: .
+            dockerfile: ./DockerfileTomcat
+        volumes: 
+            - ./tomcat/log2/:/usr/local/tomcat/logs
+    mynginx: 
+        build: 
+            context: .
+            dockerfile: ./DockerfileNginx
+        ports: 
+            - "8080:8080"
+        volumes: 
+            - ./nginx/log/:/var/log/nginx/

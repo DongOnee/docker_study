@@ -1,4 +1,24 @@
-# DAY1
+# ver 0.2
+## 목적
+- docker-compose.yml 학습 [참고자료](https://jistol.github.io/docker/2017/09/19/docker-compose-tomcat-clustering/)
+- nginx, tomcat 활용
+
+## 변경점
+1. docker-compose.yml 추가
+    - 이로 인해 쓸때없는 쉘 스크립트를 사용할 필요가 없어진다
+    - 빌드 : docker-compose up -d --build
+    - 종료 : docker-compose down
+2. dockerfile 들 폴더에서 꺼내기
+3. logging 을 위한 폴더 추가
+
+## 결과
+```
+2020/05/02 09:12:39 [alert] 6#6: 1024 worker_connections are not enough
+2020/05/02 09:12:39 [error] 6#6: *1021 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: proxy_server, request: "GET / HTTP/1.0", upstream: "http://127.0.0.1:8080/", host: "127.0.0.1"
+```
+결과는 nginx/log/error.log 를 확인 하였다. 크롬에서는 `502 Bad Gateway` 결과가 나왔다.
+
+# ver 0.1
 ## 목적
 nginx 1개와 tomcat 2 개를 이용해서 서비스를 제공
 ## 생각 
