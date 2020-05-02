@@ -1,3 +1,7 @@
+# ver 0.2 fix1
+## nginx.conf 변경
+upstream 에 서버 이름 변경 했더니~ 성공
+
 # ver 0.2
 ## 목적
 - docker-compose.yml 학습 [참고자료](https://jistol.github.io/docker/2017/09/19/docker-compose-tomcat-clustering/)

@@ -1,14 +1,13 @@
 version: '3.0'
 
 services: 
-    tomcat_1: &was
+    tomcat_1:
         build: 
             context: .
             dockerfile: ./DockerfileTomcat
         volumes: 
             - ./tomcat/log1/:/usr/local/tomcat/logs
     tomcat_2: 
-        <<: *was
         build: 
             context: .
             dockerfile: ./DockerfileTomcat
