@@ -1,1 +1,0 @@
-docker rm -f mytomcat mytomcat2 mynginx 
