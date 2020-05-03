@@ -1,3 +1,14 @@
+
+# ver 0.3
+## 목적
+- nginx 를 이용한 로드 밸런싱이 되는지 확인
+
+## 변경점
+- Tomcat 도커 빌드 파일에 Argument 추가
+- index파일 추가 / 전송
+- nginx.conf 포트 변경
+
+
 # ver 0.2 fix1
 ## nginx.conf 변경
 upstream 에 서버 이름 변경 했더니~ 성공
