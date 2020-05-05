@@ -1,3 +1,25 @@
+# ver 1.0
+## 목적
+- jenkins 와 연동 하여 자동적으로 빌드 하는지 확인
+
+## 명령어
+-   빌드
+    ```sh
+    docker build --no-cache -t myjenkins .
+    ```
+-   실행
+    ```sh
+    docker run --name myjenkins \
+        -p 8100:8080 -p 50000:5000 \
+        -v "$(pwd)"/work_spaces:/var/jenkins_home \
+        -v /var/run/docker.sock:/var/run/docker.sock \
+        -e TZ=Asia/Seoul \
+        --privileged \
+        myjenkins
+    ```
+
+## 변경점
+- jenkins 구동 환경 설정
 
 # ver 0.3
 ## 목적
