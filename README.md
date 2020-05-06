@@ -1,3 +1,13 @@
+# ver 1.2
+## 목적
+- docker build context 기능 이용
+- docker network 뭔지 잘 모르지만 그냥 써보기
+
+# ver 1.1
+## 목적
+- jenkins 레파지토리 따로 분리
+- [Jenkins Docker in Docker](https://github.com/DongOnee/jenkins_DinD.git) 참조 바람
+
 # ver 1.0
 ## 목적
 - jenkins 와 연동 하여 자동적으로 빌드 하는지 확인
@@ -10,7 +20,7 @@
 -   실행
     ```sh
     docker run --name myjenkins \
-        -p 8100:8080 -p 50000:5000 \
+        -p 8100:8080 -p 50000:50000 \
         -v "$(pwd)"/work_spaces:/var/jenkins_home \
         -v /var/run/docker.sock:/var/run/docker.sock \
         -e TZ=Asia/Seoul \
