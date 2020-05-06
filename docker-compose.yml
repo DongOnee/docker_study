@@ -1,27 +1,31 @@
 version: '3.0'
 
 services: 
-    tomcat_1:
+    tomcat1:
+        container_name: tomcat_1
         build: 
-            context: .
-            dockerfile: ./DockerfileTomcat
+            context: ./tomcat
             args: 
-                index: ./tomcat/index1.jsp
+                index: ./index1.jsp
         volumes: 
             - ./tomcat/log1/:/usr/local/tomcat/logs
-    tomcat_2: 
+    tomcat2: 
+        container_name: tomcat_2
         build: 
-            context: .
-            dockerfile: ./DockerfileTomcat
+            context: ./tomcat
             args: 
-                index: ./tomcat/index2.jsp
+                index: ./index2.jsp
         volumes: 
             - ./tomcat/log2/:/usr/local/tomcat/logs
     mynginx: 
+        container_name: proxy
         build: 
-            context: .
-            dockerfile: ./DockerfileNginx
+            context: ./nginx
         ports: 
             - "80:80"
         volumes: 
             - ./nginx/log/:/var/log/nginx/
+networks: 
+    default:
+        external: 
+            name: devops
