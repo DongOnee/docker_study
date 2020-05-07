@@ -24,8 +24,13 @@ services:
         ports: 
             - "80:80"
         volumes: 
-            - ./nginx/log/:/var/log/nginx/
+            - my_test_volume:/var/log/nginx
 networks: 
     default:
         external: 
             name: devops
+volumes: 
+    my_test_volume:
+        external: true
+
+
