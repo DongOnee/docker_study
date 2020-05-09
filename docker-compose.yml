@@ -8,6 +8,7 @@ services:
             args: 
                 index: ./index1.jsp
         volumes: 
+            # - $LOG_TOMCAT_1:/usr/local/tomcat/logs
             - tomcat_log1:/usr/local/tomcat/logs
     tomcat2: 
         container_name: tomcat_2
@@ -16,6 +17,7 @@ services:
             args: 
                 index: ./index2.jsp
         volumes: 
+            # - $LOG_TOMCAT_2:/usr/local/tomcat/logs
             - tomcat_log2:/usr/local/tomcat/logs
     mynginx: 
         container_name: proxy
@@ -24,6 +26,7 @@ services:
         ports: 
             - "80:80"
         volumes: 
+            # - $LOG_NGINX:/var/log/nginx
             - nginx_log:/var/log/nginx
 networks: 
     default:

@@ -12,15 +12,15 @@ mkdir $TOMCAT_2_LOG_PATH
 docker volume create \
     --name nginx_log \
     --opt type=none \
-    --opt device=NGINX_LOG_PATH \
-    --opt o=bind
+    --opt device=$NGINX_LOG_PATH \
+    --opt o=volume
 docker volume create \
     --name tomcat_log1 \
     --opt type=none \
-    --opt device=TOMCAT_1_LOG_PATH \
-    --opt o=bind
+    --opt device=$TOMCAT_1_LOG_PATH \
+    --opt o=volume
 docker volume create \
     --name tomcat_log2 \
     --opt type=none \
-    --opt device=TOMCAT_2_LOG_PATH \
-    --opt o=bind
+    --opt device=$TOMCAT_2_LOG_PATH \
+    --opt o=volume
