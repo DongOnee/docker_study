@@ -3,36 +3,27 @@ version: '3.0'
 services: 
     tomcat1:
         container_name: tomcat_1
-        build: 
-            context: ./tomcat
-            args: 
-                index: ./index1.jsp
+        build: ./tomcat
+        image: mytomcat:latest
         volumes: 
-            - tomcat_log1:/usr/local/tomcat/logs
+            - ~/log/tomcat/01:/usr/local/tomcat/logs
+            - ./tomcat/index1.jsp:/usr/local/tomcat/webapps.dist/ROOT/index.jsp
     tomcat2: 
         container_name: tomcat_2
-        build: 
-            context: ./tomcat
-            args: 
-                index: ./index2.jsp
+        build: ./tomcat
+        image: mytomcat:latest
         volumes: 
-            - tomcat_log2:/usr/local/tomcat/logs
+            - ~/log/tomcat/02:/usr/local/tomcat/logs
+            - ./tomcat/index2.jsp:/usr/local/tomcat/webapps.dist/ROOT/index.jsp
     mynginx: 
         container_name: proxy
-        build: 
-            context: ./nginx
+        build: ./nginx
+        image: mynginx:latest
         ports: 
-            - "80:80"
+            - 80:80
         volumes: 
-            - nginx_log:/var/log/nginx
+            - ~/log/nginx:/var/log/nginx/
 networks: 
     default:
         external: 
             name: devops
-volumes: 
-    nginx_log:
-        external: true
-    tomcat_log1:
-        external: true
-    tomcat_log2:
-        external: true
