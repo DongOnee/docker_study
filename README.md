@@ -6,14 +6,6 @@
 필요한 command
 ----------
 
-- docker volume 생성
-    ```sh
-    docker volume create \
-        --name my_test_volume \
-        --opt type=none \
-        --opt device=/Users/macbook/Desktop/ \
-        --opt o=bind
-    ```
 - build / up
 
     실행하기전 빌드시키는 걸 좋아한다.
